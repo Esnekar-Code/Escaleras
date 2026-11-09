@@ -1,49 +1,3 @@
-<!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Escaleras y Serpientes de la Acentuación</title>
-<style>
-:root{--bg:#f6f4ee;--fg:#1d1d1b;--cd:#fff;--mu:#6b6a63;--bd:#d9d5c8;--ok:#2e7d32;--no:#c62828;--ac:#1e5aa8;--ca:#eef3fb;--cb:#fff8e6;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16171a;--fg:#ececea;--cd:#222428;--mu:#a3a39c;--bd:#3a3c42;--ok:#66bb6a;--no:#ef5350;--ac:#6ea8ff;--ca:#1e2a3d;--cb:#33301f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#16171a;--fg:#ececea;--cd:#222428;--mu:#a3a39c;--bd:#3a3c42;--ok:#66bb6a;--no:#ef5350;--ac:#6ea8ff;--ca:#1e2a3d;--cb:#33301f;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
-header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;max-width:520px;margin:auto}
-h1{font-size:1.05rem;margin:0}
-button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--cd);color:var(--fg);border-radius:10px;padding:8px 12px}
-button.p{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:600}
-main{max-width:520px;margin:auto;padding:0 12px 20px}
-#bw{position:relative}
-#b{display:grid;grid-template:repeat(6,1fr)/repeat(6,1fr);gap:3px;aspect-ratio:1}
-.c{background:var(--ca);border-radius:6px;position:relative;display:flex;align-items:center;justify-content:center;min-width:0}
-.c:nth-child(odd){background:var(--cb)}
-.c i{position:absolute;top:2px;left:4px;font-size:.62rem;color:var(--mu);font-style:normal}
-.c b{font-size:1.2rem;font-weight:400}
-.c u{position:absolute;bottom:0;left:0;right:0;text-align:center;text-decoration:none;font-size:.8rem;line-height:1}
-#sv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-#ui{margin-top:12px;background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:12px}
-.r{display:flex;align-items:center;gap:12px;margin:10px 0}
-#die{font-size:2rem;font-weight:700;min-width:2.2rem;text-align:center}
-#sc{font-size:.85rem;color:var(--mu)}
-#m{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:14px;z-index:9}
-#mc{background:var(--cd);border-radius:14px;padding:18px;max-width:460px;width:100%;max-height:88vh;overflow:auto}
-#mc h2{margin:0 0 8px;font-size:1.15rem}
-#mc h3{margin:12px 0 4px;font-size:.95rem;color:var(--ac)}
-#mc p,#mc li{margin:4px 0;font-size:.92rem}
-.o{display:block;width:100%;text-align:left;margin:6px 0}
-.o.ok{border-color:var(--ok);background:var(--ok);color:#fff}
-.o.no{border-color:var(--no);background:var(--no);color:#fff}
-.fb{margin:10px 0;padding:8px 10px;border-left:4px solid var(--ac);background:var(--ca);border-radius:6px;font-size:.9rem}
-.n{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-</style></head><body>
-<header><h1>🐍 Escaleras y Serpientes · Acentuación</h1><div><button onclick="guide()">📖 Reglas</button> <button onclick="intro()" title="Reiniciar">↻</button></div></header>
-<main>
-<div id="bw"><div id="b"></div><svg id="sv" viewBox="0 0 6 6"></svg></div>
-<div id="ui"><div id="turn"></div><div class="r"><button class="p" id="rb" onclick="roll()">🎲 Tirar dado</button><span id="die">–</span></div><div id="sc"></div></div>
-</main>
-<div id="m"><div id="mc"></div></div>
-<script>
 const $=s=>document.querySelector(s),rnd=n=>Math.random()*n|0;
 const LD={3:14,9:21,17:28,24:32},SN={16:5,27:11,31:19,35:22};
 const Q=[
@@ -97,7 +51,7 @@ const R=[
 "Explica la diferencia entre «él» y «el» con un ejemplo.",
 "Di 3 palabras llanas que lleven tilde (ej.: ágil, álbum…)."
 ];
-const GUIDE=`<h2>📖 Guía de reglas de acentuación</h2><p style="color:var(--mu)">Resumen de las págs. 12–19 de «Normas de ortografía y de estilo vigentes» (SENA, 2014).</p>
+const GUIDE=`<h2>📖 Guía de reglas de acentuación</h2><p class="muted">Resumen de las págs. 12–19 de «Normas de ortografía y de estilo vigentes» (SENA, 2014).</p>
 <h3>Sílaba y acento</h3><p>Sílaba tónica: la que lleva el acento; átona: la que carece de él. Hay tres acentos: <b>prosódico</b> (pronunciación), <b>gráfico</b> o tilde y <b>diacrítico</b> (distinguidor). La mayoría de las palabras no llevan tilde, pero sí tienen acento.</p>
 <h3>Pasos para tildar</h3><ol><li>Separar en sílabas.</li><li>Identificar la sílaba más acentuada.</li><li>Clasificar la palabra según su acento.</li><li>Colocar la tilde.</li></ol>
 <h3>Diptongos</h3><p>Dos vocales en una sílaba: abierta (a, e, o) + cerrada (i, u) átona, o dos cerradas distintas (iu, ui). Tilde sobre la abierta (acción) o, si son cerradas, sobre la segunda (cuídate). Se tildan según las reglas generales.</p>
@@ -107,7 +61,7 @@ const GUIDE=`<h2>📖 Guía de reglas de acentuación</h2><p style="color:var(--
 <p>Interrogativos y exclamativos (adónde, cómo, cuál, cuán, cuándo, cuánto, dónde, qué, quién) llevan tilde cuando interrogan o exclaman, también en preguntas indirectas. <b>Solo</b> y los <b>demostrativos</b> (este, ese, aquel…) no se tildan. La conjunción <b>o</b> no se tilda ni entre números.</p>
 <h3>Polisílabos: 4 clases</h3><p><b>Agudas</b>: tónica la última (reloj, balón). <b>Llanas</b>: la penúltima (césped, inútil). <b>Esdrújulas</b>: la antepenúltima (sábado, rápido). <b>Sobresdrújulas</b>: anterior a la antepenúltima (dígamelo).</p>
 <h3>Reglas generales</h3><ul><li>Agudas: tilde si terminan en vocal, -n o -s (está, además). Sin tilde si la -s sigue a otra consonante (robots) o terminan en y (virrey).</li><li>Llanas: tilde si terminan en consonante que no sea -n ni -s (ágil, árbol). Con tilde si terminan en -s tras consonante (bíceps, cómics) o en y (póney).</li><li>Esdrújulas y sobresdrújulas: siempre llevan tilde (teléfono, gánatela).</li></ul>
-<div class="n"><button class="p" onclick="hide()">Cerrar</button></div>`;
+<div class="n"><button class="p" data-action="hide">Cerrar</button></div>`;
 let P=[],T=0,used=[],busy=false,cq=null,ord=[];
 function show(h){$('#mc').innerHTML=h;$('#m').style.display='flex'}
 function hide(){$('#m').style.display='none'}
@@ -120,25 +74,26 @@ function intro(){busy=true;show(`<h2>🐍 Escaleras y Serpientes de la Acentuaci
 <li>🪜 <b>Escalera:</b> subes sin preguntas.</li>
 <li>🐍 <b>Serpiente:</b> cumples un reto en voz alta o por escrito y luego bajas.</li>
 <li>Si te atascas, abre «📖 Reglas».</li></ul>
-<h3>¿Cuántos jugadores?</h3><div class="n">${[1,2,3,4].map(n=>`<button class="p" onclick="start(${n})">${n}</button>`).join('')}</div>`)}
+<h3>¿Cuántos jugadores?</h3><div class="n">${[1,2,3,4].map(n=>`<button class="p" data-action="start" data-value="${n}">${n}</button>`).join('')}</div>`)}
 function start(n){P=Array.from({length:n},(_,i)=>({p:1,s:0,e:['🔴','🔵','🟢','🟡'][i]}));T=0;used=[];busy=false;$('#die').textContent='–';hide();draw()}
 function draw(){document.querySelectorAll('.c u').forEach(u=>u.textContent='');P.forEach(p=>{$('#c'+p.p+' u').textContent+=p.e});if(!P.length)return;
 $('#turn').innerHTML=`Turno de ${P[T].e} <b>Jugador ${T+1}</b> · casilla ${P[T].p}`;
 $('#sc').innerHTML=P.map((p,i)=>`${p.e} J${i+1}: ⭐${p.s} · casilla ${p.p}`).join(' &nbsp; ')}
 function roll(){if(busy||!P.length)return;busy=true;const r=1+rnd(6);$('#die').textContent=r;P[T].p=Math.min(36,P[T].p+r);draw();setTimeout(land,550)}
 function land(){const pl=P[T],p=pl.p;
-if(p==36){const w=P.map((q,i)=>`${q.e} J${i+1}: ⭐${q.s}`).join('<br>');return show(`<h2>🏆 ¡Gana el Jugador ${T+1} ${pl.e}!</h2><p>${w}</p><div class="n"><button class="p" onclick="intro()">Jugar de nuevo</button></div>`)}
-if(LD[p])return show(`<h2>🪜 ¡Escalera!</h2><p>Subes de la casilla ${p} a la ${LD[p]}.</p><div class="n"><button class="p" onclick="mv(${LD[p]})">Subir</button></div>`);
-if(SN[p])return show(`<h2>🐍 ¡Serpiente!</h2><p>Antes de bajar a la casilla ${SN[p]}, cumple este reto:</p><div class="fb">${R[rnd(R.length)]}</div><div class="n"><button class="p" onclick="mv(${SN[p]})">¡Reto cumplido!</button></div>`);
+if(p==36){const w=P.map((q,i)=>`${q.e} J${i+1}: ⭐${q.s}`).join('<br>');return show(`<h2>🏆 ¡Gana el Jugador ${T+1} ${pl.e}!</h2><p>${w}</p><div class="n"><button class="p" data-action="intro">Jugar de nuevo</button></div>`)}
+if(LD[p])return show(`<h2>🪜 ¡Escalera!</h2><p>Subes de la casilla ${p} a la ${LD[p]}.</p><div class="n"><button class="p" data-action="move" data-value="${LD[p]}">Subir</button></div>`);
+if(SN[p])return show(`<h2>🐍 ¡Serpiente!</h2><p>Antes de bajar a la casilla ${SN[p]}, cumple este reto:</p><div class="fb">${R[rnd(R.length)]}</div><div class="n"><button class="p" data-action="move" data-value="${SN[p]}">¡Reto cumplido!</button></div>`);
 if(used.length>=Q.length)used=[];let i;do{i=rnd(Q.length)}while(used.includes(i));used.push(i);cq=Q[i];
 ord=cq[1].map((t,k)=>[t,k]).sort(()=>Math.random()-.5);
-show(`<h2>❓ Pregunta</h2><p><b>${cq[0]}</b></p>${ord.map((o,k)=>`<button class="o" onclick="ans(${k})">${o[0]}</button>`).join('')}`)}
+show(`<h2>❓ Pregunta</h2><p><b>${cq[0]}</b></p>${ord.map((o,k)=>`<button class="o" data-action="answer" data-value="${k}">${o[0]}</button>`).join('')}`)}
 function ans(k){const ok=ord[k][1]==cq[2];
 document.querySelectorAll('.o').forEach((b,j)=>{b.disabled=true;if(ord[j][1]==cq[2])b.classList.add('ok');else if(j==k)b.classList.add('no')});
 const pl=P[T];let msg;if(ok){pl.s++;msg='¡Correcto! +1 ⭐'}else{pl.p=Math.max(1,pl.p-1);msg='Incorrecto: retrocedes 1 casilla.'}
-$('#mc').insertAdjacentHTML('beforeend',`<div class="fb"><b>${msg}</b><br>${cq[3]}</div><div class="n"><button class="p" onclick="nx()">Continuar</button></div>`);draw()}
+$('#mc').insertAdjacentHTML('beforeend',`<div class="fb"><b>${msg}</b><br>${cq[3]}</div><div class="n"><button class="p" data-action="next">Continuar</button></div>`);draw()}
 function mv(n){P[T].p=n;nx()}
 function nx(){hide();busy=false;T=(T+1)%P.length;draw()}
+document.addEventListener('click',event=>{const target=event.target;if(!(target instanceof Element))return;const button=target.closest('button[data-action]');if(!button)return;const value=button.dataset.value;switch(button.dataset.action){case'guide':guide();break;case'intro':intro();break;case'roll':roll();break;case'hide':hide();break;case'start':start(Number(value));break;case'move':mv(Number(value));break;case'answer':ans(Number(value));break;case'next':nx();break;}});
 (function(){const xy=n=>{const r=(n-1)/6|0,c=r%2?5-(n-1)%6:(n-1)%6;return[c+.5,5-r+.5]};
 for(let n=1;n<=36;n++){const r=(n-1)/6|0,c=r%2?5-(n-1)%6:(n-1)%6,d=document.createElement('div');d.className='c';d.id='c'+n;d.style.gridRow=6-r;d.style.gridColumn=c+1;
 d.innerHTML=`<i>${n}</i><b>${n==1?'🏁':n==36?'🏆':LD[n]?'🪜':SN[n]?'🐍':''}</b><u></u>`;$('#b').append(d)}
@@ -146,4 +101,3 @@ let s='';for(const a in LD){const[x1,y1]=xy(+a),[x2,y2]=xy(LD[a]);s+=`<line x1="
 for(const a in SN){const[x1,y1]=xy(+a),[x2,y2]=xy(SN[a]);s+=`<path d="M${x1} ${y1}Q${(x1+x2)/2+.45} ${(y1+y2)/2-.3} ${x2} ${y2}" fill="none" stroke="#d64545" stroke-width=".1" stroke-linecap="round" opacity=".7"/>`}
 $('#sv').innerHTML=s})();
 intro();
-</script></body></html>

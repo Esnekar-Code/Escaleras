@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Escaleras y Serpientes de la Acentuación</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🐍 Escaleras y Serpientes · Acentuación</h1>
+    <div>
+      <button type="button" data-action="guide">📖 Reglas</button>
+      <button type="button" data-action="intro" title="Reiniciar">↻</button>
+    </div>
+  </header>
+  <main>
+    <div id="bw">
+      <div id="b"></div>
+      <svg id="sv" viewBox="0 0 6 6"></svg>
+    </div>
+    <div id="ui">
+      <div id="turn"></div>
+      <div class="r">
+        <button type="button" class="p" id="rb" data-action="roll">🎲 Tirar dado</button>
+        <span id="die">–</span>
+      </div>
+      <div id="sc"></div>
+    </div>
+  </main>
+  <div id="m">
+    <div id="mc"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
